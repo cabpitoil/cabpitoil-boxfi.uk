@@ -33,7 +33,6 @@ jobs:
           Write-Host "🔁 Deployment Workflow   : $env:WORKFLOW_FILE"
           Write-Host "🆔 Deployment ID         : $env:DEPLOYMENT_ID"
           Write-Host "==============================================="
-
       - name: 🔐 Validate Secrets
         shell: pwsh
         run: |
@@ -46,7 +45,6 @@ jobs:
             exit 1
           }
           Write-Host "✅ All required secrets validated successfully"
-
       - name: 📥 Download EnigMano-instance.ps1
         shell: pwsh
         run: |
@@ -58,13 +56,11 @@ jobs:
             exit 1
           }
           Write-Host "✅ EnigMano-Instance.ps1 downloaded successfully"
-
       - name: ⚔️ Execute EnigMano Instance Script
         shell: pwsh
         run: |
           Write-Host "🚦 Initiating EnigMano-Instance.ps1"
           powershell.exe -ExecutionPolicy Bypass -File ".\EnigMano-Instance.ps1"
-
       - name: 💠 Final Status
         if: always()
         shell: pwsh
